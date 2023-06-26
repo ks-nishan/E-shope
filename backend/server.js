@@ -1,4 +1,5 @@
 const app = require("./app");
+const connectDatabase = require("./db/database");
 
 const port = process.env.PORT || 8000;
 
@@ -14,6 +15,9 @@ if (process.env.NODE_ENV == "PRODUCTION") {
     path: "backend/config/.env",
   });
 }
+
+//connect DB
+connectDatabase();
 
 //create server
 const server = app.listen(port, () => {
